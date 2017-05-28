@@ -8,4 +8,4 @@ COPY . /usr/src/app
 
 WORKDIR /usr/src/app
 
-CMD python relay_controller.py
+CMD ["python", "-u", "relay_controller.py"]

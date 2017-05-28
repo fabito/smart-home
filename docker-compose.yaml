@@ -24,6 +24,8 @@ services:
     privileged: true
     volumes:
       - ./relay-controller:/usr/src/app
+    environment: 
+      - PYTHONUNBUFFERED=0         
     depends_on:
       - mosquitto
 
