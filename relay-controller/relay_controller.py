@@ -11,7 +11,7 @@ GPIO.setmode(GPIO.BCM)
 
 SleepTimeL = 0.2
 
-pinList = [2,3,4,17,27,22,10,9]
+pinList = [4,17,27,22]
 
 for i in pinList:
 	GPIO.setup(i, GPIO.OUT)
@@ -39,38 +39,38 @@ def main():
         print "Got new message on topic: %s with payload: %s" % (msg.payload, msg.topic)
 	if msg.topic == "home/office/relay/1" :
 		if msg.payload == "ON" :
-			GPIO.output(2, GPIO.LOW)
+			GPIO.output(4, GPIO.LOW)
 			time.sleep(SleepTimeL);
 			print "Outlet 1 ON"
 		if msg.payload == "OFF" :
-			GPIO.output(2, GPIO.HIGH)
+			GPIO.output(4, GPIO.HIGH)
 			time.sleep(SleepTimeL);
 			print "Outlet 1 OFF"
 	if msg.topic == "home/office/relay/2" :
 		if msg.payload == "ON" :
-			GPIO.output(3, GPIO.LOW)
+			GPIO.output(17, GPIO.LOW)
 			time.sleep(SleepTimeL);
 			print "Outlet 2 On"
 		if msg.payload == "OFF" :
-			GPIO.output(3, GPIO.HIGH)
+			GPIO.output(17, GPIO.HIGH)
 			time.sleep(SleepTimeL);
 			print "Outlet 2 Off"
 	if msg.topic == "home/office/relay/3" :
 		if msg.payload == "ON" :
-			GPIO.output(4, GPIO.LOW)
+			GPIO.output(27, GPIO.LOW)
 			time.sleep(SleepTimeL);
 			print "Outlet 3 ON"
 		if msg.payload == "OFF" :
-			GPIO.output(4, GPIO.HIGH)
+			GPIO.output(27, GPIO.HIGH)
 			time.sleep(SleepTimeL);
 			print "Outlet 3 OFF"
 	if msg.topic == "home/office/relay/4" :
 		if msg.payload == "ON" :
-			GPIO.output(17, GPIO.LOW)
+			GPIO.output(22, GPIO.LOW)
 			time.sleep(SleepTimeL);
 			print "Outlet 4 ON"
 		if msg.payload == "OFF" :
-			GPIO.output(17, GPIO.HIGH)
+			GPIO.output(22, GPIO.HIGH)
 			time.sleep(SleepTimeL);
 			print "Outlet 4 OFF"
 	if msg.topic == "home/office/relay/5" :
