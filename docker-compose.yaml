@@ -1,0 +1,30 @@
+version: '2'
+services:
+
+  mosquitto:
+    build:
+      context: ./mosquitto
+    image: fabito/rpi-mosquitto
+    container_name: mosquitto
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - mosquitto-config:/config:ro
+      - mosquitto-data:/data
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    restart: unless-stopped
+
+  relay-controller:
+    build:
+      context: ./relay-controller
+    image: fabito/rpi-relay-controller
+    container_name: relay-controller
+    restart: unless-stopped
+    privileged: true
+
+volumes:
+  mosquitto-config:
+    external: true
+  mosquitto-data:
+    external: true
